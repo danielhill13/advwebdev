@@ -1,12 +1,12 @@
-$("#btn").click(function(){
-    $.ajax({
-        method:"GET",
-        url: "https://baconipsum.com/api/?type=meat-and-filler"
-    })
+var btn = document.querySelector("#catButton");
+var catImg = document.querySelector("#catImg");
+
+btn.addEventListener("click", function(){
+    $.getJSON("http://aws.random.cat/meow")
     .done(function(res){
-        $("p").text(res)
+        catImg.src = res.file;
     })
     .fail(function(){
-        console.log("The request failed");
+        console.log ("Error retrieving Image");
     })
-});
+})
