@@ -19,7 +19,6 @@ function map (array, callback){
     return newArr;
 };
 //map examples
-
 function tripleValues(arr){
     return arr.map(function(value){
         return value * 3;
