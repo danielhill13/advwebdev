@@ -42,3 +42,12 @@ function sumOddNumbers(arr){
     },0);
 }
 
+
+function createFullName(arr){
+    return arr.reduce(function(accumulator, nextValue){
+        accumulator.push(nextValue.first + " " + nextValue.last);
+        return accumulator;
+    }, []);
+}
+
+createFullName([{first:'Daniel', last:'Hill'}, {first:"Paula", last:"Pando"}])
