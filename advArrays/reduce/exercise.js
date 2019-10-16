@@ -83,11 +83,12 @@ Examples:
 */
 
 function partition(arr, callback){
-    //accept array
-    //returns array with 2 arrays in it
-    //partition = callback on each value in 1st array, and
-            //if result of callback is true, place value in 1st array
-            //if result of callback is false, place value in 2nd array
-    
-    
+    return arr.reduce(function(acc, nV){
+        if(callback(nV)){
+            acc[0].push(nV);
+        } else {
+            acc[1].push(nV)
+        }
+        return acc;
+    },[[],[]])
 }
