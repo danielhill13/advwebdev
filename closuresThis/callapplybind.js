@@ -103,9 +103,46 @@ var daniel = {
     firstName: 'daniel'
 }
 
+var danielCalc = addNumbers.bind(daniel,1,2,3,4); // function(){}
+danielCalc() // daniel just calculated 10
+var danielCalc = addNumbers.bind(daniel,1,2); // function(){}
+danielCalc(3,4) // daniel just calculated 10
 
 
+// set timeout - i start this and it'll print in 20 seconds
+setTimeout(function(){
+    console.log("Hello world")
+}, 20000)
+// now i can do other things in those 20 seconds before print
+// 'hi' 'la la la'
+// var fun = "yay";
+// 1 + 1 // 2
+// "Hello world"
 
+///////////////////////////////////////////////////////////////
+var daniel = {
+    firstName: "Daniel",
+    sayHi: function(){
+        setTimeout(function(){
+            console.log("Hi " + this.firstName)
+        }, 1000)
+    }
+}
+daniel.sayHi() // Hi undefined
+// this refers to global object
+// since settimeout is called at later point in time, object attached to window
+// settimeout accepts a callback, and every function get its own value of keyword this, even if its defined inside an object
+// How do we solve this problem?
+// call and apply invoke function right away (defeats purpose of settimeout). leaves us with bind
+var daniel = {
+    firstName: "Daniel",
+    sayHi: function(){
+        setTimeout(function(){
+            console.log("Hi " + this.firstName);
+        }.bind(this), 1000)
+    }
+}
+daniel.sayHi() // Hi Daniel
 
 
 
