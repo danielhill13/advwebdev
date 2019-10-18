@@ -43,7 +43,7 @@ Examples (yours might not be like this, since the answer is random every time):
 */
 
 function guessingGame(amount){
-    var answer = Math.floor(Math.random() * 10);
+    var answer = Math.floor(Math.random() * 11);
     var guesses = 0;
     return function inner(guess){
         if (guesses == amount){
