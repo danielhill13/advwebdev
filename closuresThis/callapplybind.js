@@ -145,27 +145,3 @@ var daniel = {
 daniel.sayHi() // Hi Daniel
 
 
-
-
-
-
-
-
-
-
-
-
-// APPLY
-
-
-
-
-
-
-
-
-
-
-
-
-// BIND
