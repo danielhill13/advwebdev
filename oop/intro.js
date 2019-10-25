@@ -50,3 +50,8 @@ function Motorcycle(make, model, year){
     Car.apply(this, [make, model, year]);
     this.numWheels = 2;
 }
+// ORRR use apply with arguments instead of array
+function Motorcycle(){
+    Car.apply(this, arguments);
+    this.numWheels = 2;
+}
