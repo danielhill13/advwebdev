@@ -48,10 +48,10 @@ Person.prototype.addToFamily = function(newMember){
 // PART II 
 
 // 1 - Implement your own version of Array.prototype.map. The function should accept a callback and return a new array with the result of the callback for each value in the array. 
-function mapping(arr, cb){
+Array.prototype.map = function (cb){
     var newArr = [];
-    for(let i=0; i < arr.length; i++){
-        newArr.push(cb(arr[i]));
+    for(let i=0; i < this.length; i++){
+        newArr.push(cb(this[i]));
     }
     return newArr;
 }

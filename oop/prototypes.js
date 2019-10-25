@@ -33,7 +33,7 @@ function Person(firstName, lastName, favoriteColor, favoriteNumber){
     this.sayHi = function(){
         return 'Hi ' + this.firstName;
     }
-    }
+}
 // Code works, but is inefficient
 // Refactor as below to be more efficient
 function Person(firstName, lastName, favoriteColor, favoriteNumber){
@@ -61,7 +61,40 @@ Vehicle.prototype.turnOff = function(){
     this.isRunning = false;
 }
 Vehicle.prototype.beep = function(){
-    if (this.isRunning === true){
+    if (this.isRunning){
         return 'beep';
     }
 }
+////////////////////////////////////////
+////////////////////////////////////////
+// INHERITANCE
+
+// passing of methods and properties from one class to another
+// passing prototype property
+
+// don't want to assign one object to another - just creates a reference and one prototype can affect another (bad)
+// Object.create solve this
+function Person(firstName, lastName){
+    this.firstName = firstName;
+    this.lastName = lastName;
+}
+
+function Student(first, last){
+    return Person.apply(this, arguments);
+}
+Student.prototype = Object.create(Person.prototype)
+// Now we test adding a function to Student prototype and check it does not affect Person prototype
+Student.prototype.status = function(){
+    return 'I am currently a student!'
+}
+
+Student.prototype.constructor // Person
+// When we use Object.create, we overwrite the Student constructor property. We need to reset it
+Student.prototype.constructor = Student; // now it's set back right
+
+
+
+
+
+
+
